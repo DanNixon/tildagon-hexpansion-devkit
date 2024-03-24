@@ -60,6 +60,7 @@
       ],
       "drc_exclusions": [
         "silk_overlap|144222115|71895038|6c3c1b14-ae57-4795-8075-9e15ecd37fa4|c3612082-927c-404f-b746-c054da8d7477",
+        "starved_thermal|107945000|72395000|2a367754-d06c-4c08-aef8-76610c675da7|ff0723d2-7c7b-421b-8c81-ad8c15023f15|B.Cu",
         "starved_thermal|123195000|90429000|2a367754-d06c-4c08-aef8-76610c675da7|f8d48e16-470c-44eb-abc4-ee59d90c32b9|B.Cu",
         "starved_thermal|130815000|90429000|2a367754-d06c-4c08-aef8-76610c675da7|148d31ce-f24b-4a82-b23a-60b18e14c141|B.Cu",
         "starved_thermal|146055000|72385000|2a367754-d06c-4c08-aef8-76610c675da7|808e4a58-f26f-4c1a-881e-8b48d4afcfc2|B.Cu",
