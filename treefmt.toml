@@ -1,0 +1,12 @@
+[formatter.markdown]
+command = "mdl"
+includes = [ "*.md" ]
+
+[formatter.nix]
+command = "alejandra"
+includes = [ "*.nix" ]
+
+[formatter.cpp]
+command = "clang-format"
+options = [ "-i" ]
+includes = [ "*.h", "*.cpp", "*.ino" ]

@@ -1,0 +1,43 @@
+---
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+
+jobs:
+  formatting-and-quality:
+    name: Formatting and Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v10
+
+      - name: Format
+        run: nix develop --command treefmt --fail-on-change
+
+  build-test-programs:
+    name: Build test programs
+    needs:
+      - formatting-and-quality
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        program:
+          - i2c_scan
+          - led_cc
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v10
+
+      - name: Build
+        run: |
+          cd "test-programs/${{ matrix.program }}"
+          nix develop --command pio run
