@@ -32,6 +32,7 @@ jobs:
         program:
           - i2c_scan
           - led_cc
+          - rabbit_makerspace_duck
 
     steps:
       - uses: actions/checkout@v4
