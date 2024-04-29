@@ -10,6 +10,40 @@ Default address configuration of both the AW9523B and TCA9548A match what is use
 
 Paired with your ESP32-S3 dev board of choice, this should allow you to develop something more than "shape with LED" hexpansions prior to EMF 2024.
 
+## Pinouts
+
+"Pin" refers to the index used on the Tildagon design files.
+"Letter" refers to the letter assigned to the pins in the Hexpansion example.
+Why the two different pin identification schemes exist is a mystery to me...
+
+### Low Speed
+
+| Pin | Letter | Port D | Port E | Port F |
+|-----|--------|--------|--------|--------|
+| 1   | A      | 1.0    | 0.2    | 0.7    |
+| 2   | B      | 1.1    | 0.3    | 1.4    |
+| 3   | C      | 1.2    | 0.4    | 1.5    |
+| 4   | D      | 1.3    | 0.5    | 1.6    |
+| 5   | E      | 0.0    | 0.6    | 1.7    |
+
+### High Speed
+
+| Pin | Letter |
+|-----|--------|
+| 1   | F      |
+| 2   | G      |
+| 3   | H      |
+| 4   | I      |
+
+### i2c
+
+| Bus | Port |
+|-----|------|
+| 4   | D    |
+| 5   | E    |
+| 6   | F    |
+| 7   | sys  |
+
 ## See also
 
 - [badge-2024-hardware](https://github.com/emfcamp/badge-2024-hardware)
