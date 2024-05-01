@@ -64,29 +64,30 @@ void setup() {
   for (int i = 0; i < 16; i++) {
     ms_hexpansion_io_1.pinMode(i, AW9523_LED_MODE);
     ms_hexpansion_io_2.pinMode(i, AW9523_LED_MODE);
-
-    ms_hexpansion_io_1.analogWrite(i, 50);
-    ms_hexpansion_io_2.analogWrite(i, 50);
   }
+
+  select_sys_i2c();
+
+  badge_io.analogWrite(rabbit_red_pin, 8);
+  badge_io.analogWrite(duck_blue_pin, 8);
+
+  select_port_e_i2c();
 }
 
 void loop() {
-  select_sys_i2c();
-  flash_led(rabbit_red_pin);
-  flash_led(rabbit_green_pin);
-  flash_led(rabbit_blue_pin);
-  flash_led(duck_red_pin);
-  flash_led(duck_green_pin);
-  flash_led(duck_blue_pin);
-
-  // TODO
+  for (int i = 0; i < 24; i++) {
+    set_m_intensity(i);
+    delay(10);
+  }
+  for (int i = 22; i > 0; i--) {
+    set_m_intensity(i);
+    delay(10);
+  }
 }
 
-void flash_led(int led) {
-  Serial.print("Flashing LED: ");
-  Serial.println(led);
-
-  badge_io.analogWrite(led, 50);
-  delay(500);
-  badge_io.analogWrite(led, 0);
+void set_m_intensity(int intensity) {
+  for (int i = 0; i < 16; i++) {
+    ms_hexpansion_io_1.analogWrite(i, intensity);
+    ms_hexpansion_io_2.analogWrite(i, intensity);
+  }
 }
